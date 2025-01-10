@@ -2102,8 +2102,8 @@ function get_dances(job_id, job_level)
     if (job_id == 19) then
         for i, dance in ipairs(dances) do
             if (job_level >= dance.level) then
-                local crossbar_dance = crossbar_abilities[kebab_casify(command.name)]
-                local target_type = res.job_abilities[command.id].targets
+                local crossbar_dance = crossbar_abilities[kebab_casify(dance.name)]
+                local target_type = res.job_abilities[dance.id].targets
                 local icon_path = 'ui/red-x.png'
                 local icon_offset = 0
                 local icon_overridden = true
