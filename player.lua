@@ -448,7 +448,7 @@ function player:execute_action(slot)
         return
     end
 
-    windower.send_command('input /' .. action.type .. ' "' .. action.action .. target_string)
+    windower.send_command('input /' .. action.type .. ' "' .. action.action .. target_string .. '"')
 end
 
 -- remove action from slot
