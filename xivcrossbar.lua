@@ -154,6 +154,10 @@ function start_controller_wrappers()
     windower.send_command('run addons/xivcrossbar/ffxi_xinput.ahk')
 end
 
+function stop_controller_wrappers()
+    windower.send_command('run addons/xivcrossbar/killahk.bat')
+end
+
 -- initialize addon
 function initialize()
     local windower_player = windower.ffxi.get_player()
@@ -541,6 +545,7 @@ end)
 windower.register_event('logout', function()
     ui:hide()
     skillchains.logout()
+    stop_controller_wrappers()
 end)
 
 -- ON COMMAND

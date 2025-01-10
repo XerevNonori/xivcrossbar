@@ -440,8 +440,11 @@ function player:execute_action(slot)
         if is_player_mounted() then
             windower.send_command('input /dismount')
             return
-        elseif action.action == 'Mount Roulette' then   
+        elseif action.action == 'Mount Roulette' then
             mount_roulette:ride_random_mount()
+            return
+        elseif action.action ~= 'Mount Roulette' then
+            windower.send_command('input /' .. action.type .. ' "' .. action.action .. '"' .. target_string)
             return
         end
     elseif (action.type == 'ta' and action.action == 'Switch Target' and action.alias == 'Switch Target') then
@@ -453,7 +456,7 @@ function player:execute_action(slot)
         return
     end
 
-    windower.send_command('input /' .. action.type .. ' "' .. action.action .. target_string .. '"')
+    windower.send_command('input /' .. action.type .. ' "' .. action.action .. target_string)
 end
 
 -- remove action from slot
